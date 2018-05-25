@@ -1,0 +1,8 @@
+/* pages/person/person.wxss */
+.list{
+  padding:0;
+  margin:0;
+}
+.list-item{
+  height:164rpx;
+}

@@ -1,0 +1,14 @@
+/* pages/detail/detail.wxss */
+.modal{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate3d(-50%,-50%,0);
+  background:#ccc;
+  font-size:14px;
+  width:90%;
+  height:200px;
+}
+.phone-input{
+  border:1px solid #f60;
+}

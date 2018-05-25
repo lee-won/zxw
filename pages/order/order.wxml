@@ -1,0 +1,10 @@
+<!--pages/person/person.wxml-->
+<view class="container">
+  <view class="list">
+    <view class="list-item">
+      <view class="right">
+        <text class="title">制冷空调系统安装维修工</text>
+      </view>
+    </view>
+  </view>
+</view>

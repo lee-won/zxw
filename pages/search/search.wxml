@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="search">
+      <image class="search_icon"  mode="aspectFit" src="/images/search_icon.png" bindtap='search'></image>
+      <image class="close_icon" wx:if="{{searchValue}}"  mode="aspectFit" src="/images/close.png" bindtap='clearSearchValue'></image>
+      <input class="search-input" value="{{searchValue}}" focus="true"  bindinput="bindKeyInput" type="text" placeholder='请输入查询内容'/>
+  </view>
+  <view wx:if="{{!articles || searchValue === ''}}">
+    <view class="label-wrapper">
+      <text class="title">热门推荐</text>
+      <view class="history-list">
+        <block wx:for="{{recommends}}" wx:key="{{index}}">
+          <text class="history-list-item" data-history="{{item}}" bindtap='historySearch'>{{item}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view wx:elif="{{articles!=='未找到相关文章'}}"  class="article">
+    <block wx:for="{{articles}}" wx:key="{{index}}">
+      <navigator url="/pages/detail/detail?url={{basic_url + item.source_id + '/' + token + '/'}}">
+        <view class="article-item">
+          <view class="article-item-content">
+            <text class="article-item-content-title">{{item.title}}</text>
+            <text class="key-word" wx:if="{{item.keyword.length >0}}">
+              <text>关键字：</text>
+              <block wx:for="{{item.keyword}}"  wx:key="{{index}}">
+                <text class="key-word-item">{{item}}</text>
+              </block>
+            </text>
+            <text class="article-item-content-outline">{{item.summary}}</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+    <view class="loading" wx:if="{{loadFlag}}">
+      <view wx:if="{{!loadAll}}">
+        <image class="loading-icon" src="/images/loading.gif"></image>
+        <text class="loading-text">拼命加载中...</text>
+      </view>
+      <view wx:else>已加载全部数据</view>
+    </view>
+  </view>
+  <view wx:else>
+    <text class="no-search-result">{{articles}}</text>
+  </view>
+</view>

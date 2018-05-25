@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="search" bindtap='goSearch'>
+    <view class="search-content">
+      <image class="search-icon" mode="aspectFit" src="/images/search_icon.png"></image>
+      <text class="search-input" type="text">请输入查询内容</text>
+    </view>
+  </view>
+  <view class="article">
+    <block wx:for="{{lists}}" wx:key="{{index}}">
+    <navigator url="/pages/detail/detail?url={{basic_url + item.source_id + '/' + token + '/'}}">
+      <view class="article-item">
+        <view class="article-item-content">
+          <text class="article-item-content-title">{{item.title}}</text>
+          <text class="key-word" wx:if="{{item.keyword.length >0}}">
+            <text>关键字：</text>
+            <block wx:for="{{item.keyword}}"  wx:key="{{index}}">
+              <text class="key-word-item">{{item}}</text>
+            </block>
+          </text>
+          <text class="article-item-content-outline">{{item.summary}}</text>
+        </view>
+      </view>
+    </navigator>
+    </block>
+  </view>
+  <view class="loading" wx:if="{{loadFlag}}">
+    <view wx:if="{{!loadAll}}">
+      <image class="loading-icon" src="/images/loading.gif"></image>
+      <text class="loading-text">拼命加载中...</text>
+    </view>
+    <view wx:else>已加载全部数据</view>
+  </view>
+</view>

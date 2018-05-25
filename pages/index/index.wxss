@@ -1,0 +1,111 @@
+/**index.wxss**/
+.clearfix{
+  content: '.';
+  height:0;
+  overflow:hidden;
+  visibility: visible;
+  clear:both;
+}
+.search{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background: #ccc;
+  height:90rpx;
+  padding:0 24rpx;
+  box-sizing: border-box;
+  z-index:9999;
+}
+.search-content{
+  background: #fff;
+  height:60rpx;
+  margin-top:15rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.search-icon{
+  display: inline-block;
+  vertical-align: middle;
+  height:36rpx;
+  width:36rpx;
+}
+.search-input{
+  display: inline-block;
+  font-family:PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999;
+  letter-spacing: 0;
+  height:60rpx;
+  line-height:60rpx;
+}
+.article{
+  margin-top:110rpx;
+}
+.article-item{
+  padding:20rpx 0;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.article-item-content{
+  position:relative;
+  height:200rpx;
+}
+.article-item-content-title{
+  display: block; 
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  font-weight: bold;
+  word-break: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.key-word{
+  display: inline-block;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+}
+.key-word-item{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color:#666;
+  display: inline-block;
+  margin-right:20rpx;
+}
+.article-item-content-outline{
+  margin-top:20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  word-break: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.article-item-content-time{
+   position:absolute;
+   bottom:0;
+   left:30rpx;
+   font-family: PingFangSC-Regular;
+   font-size:24rpx;
+   color:#999;
+}
+.loading{
+  height:80rpx;
+  text-align: center;
+}
+.loading-icon{
+  width:30rpx;
+  height:30rpx;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+.loading-text{
+  font-family: PingFangSC-Regular;
+  font-size:24rpx;
+  height:80rpx;
+  line-height:80rpx;
+  vertical-align: middle;
+}

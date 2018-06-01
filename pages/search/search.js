@@ -50,6 +50,9 @@ Page({
     })
   },
   search: function() {
+    if(!this.data.searchValue){
+      return
+    }
     this.setData({
       page: 1,
       loadAll:false

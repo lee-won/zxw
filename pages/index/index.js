@@ -6,6 +6,8 @@ Page({
   data: {
     lists: [],
     page: 1,
+    navs: [],
+    navItem: 'all',
     token: '',
     loadFlag:false,
     loadAll: false,
@@ -14,13 +16,24 @@ Page({
   onLoad: function() {
     var that = this
     setTimeout(() => {
-      fetch(URL.LIST_URL + that.data.page + '/' + app.globalData.token + '/', 'get', null, (res) => {
+      fetch(URL.LIST_URL + that.data.navItem + '/' + that.data.page + '/' + app.globalData.token + '/', 'get', null, (res) => {
         that.setData({
           lists: res.data.articles,
-          token: app.globalData.token
+          token: app.globalData.token,
+          navs: res.data.classify
         })
       })
     }, 2000) 
+  },
+  selectNavItem: function(e) {
+    fetch(URL.LIST_URL + e.currentTarget.dataset.nav + '/' + '1/' + app.globalData.token + '/', 'get', null, (res) => {
+      this.setData({
+        lists: res.data.articles,
+        page: 1,
+        loadAll: false,
+        navItem: e.currentTarget.dataset.nav
+      });
+    })
   },
   //事件处理函数
   goSearch: function (e) {
@@ -32,7 +45,7 @@ Page({
     // 显示顶部刷新图标  
     wx.showNavigationBarLoading();
     var that = this;
-    fetch(URL.LIST_URL + '1/' + app.globalData.token + '/', 'get', null, (res) => {
+    fetch(URL.LIST_URL + that.data.navItem + '/' + '1/' + app.globalData.token + '/', 'get', null, (res) => {
       that.setData({
         lists: res.data.articles,
         page: 1,
@@ -55,7 +68,7 @@ Page({
       loadFlag: true
     })
     setTimeout(()=>{
-      fetch(URL.LIST_URL + that.data.page + '/' + app.globalData.token + '/','get',null,(res)=>{
+      fetch(URL.LIST_URL + that.data.navItem + '/' + that.data.page + '/' + app.globalData.token + '/','get',null,(res)=>{
         if (res.data.articles.length) {
           // 设置数据  
           that.setData({

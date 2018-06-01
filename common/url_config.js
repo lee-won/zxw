@@ -1,5 +1,5 @@
-// const BASIC_URL = 'https://www.banmaso.com/api/'
-const BASIC_URL = 'http://192.168.50.106:8000/api/'
+const BASIC_URL = 'https://www.banmaso.com/api/'
+// const BASIC_URL = 'http://192.168.50.106:8000/api/'
 const URL = {
   LOGIN_URL: BASIC_URL + 'article/miniapp/login/',
   LIST_URL: BASIC_URL + 'article/index/',

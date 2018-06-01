@@ -17,19 +17,29 @@
   <view wx:elif="{{articles!=='未找到相关文章'}}"  class="article">
     <block wx:for="{{articles}}" wx:key="{{index}}">
       <navigator url="/pages/detail/detail?url={{basic_url + item.source_id + '/' + token + '/'}}">
-        <view class="article-item">
-          <view class="article-item-content">
-            <text class="article-item-content-title">{{item.title}}</text>
-            <text class="key-word" wx:if="{{item.keyword.length >0}}">
-              <text>关键字：</text>
-              <block wx:for="{{item.keyword}}"  wx:key="{{index}}">
-                <text class="key-word-item">{{item}}</text>
-              </block>
-            </text>
-            <text class="article-item-content-outline">{{item.summary}}</text>
+      <view class="article-item">
+        <view class="article-item-content">
+           <!--
+          <text class="article-item-content-title">{{item.title}}</text>
+          <text class="key-word" wx:if="{{item.keyword.length >0}}">
+            <text>关键字：</text>
+            <block wx:for="{{item.keyword}}"  wx:key="{{index}}">
+              <text class="key-word-item">{{item}}</text>
+            </block>
+          </text>
+          -->
+          <text class="article-item-content-outline">{{item.summary}}</text>
+          <view class="article-item-pic">
+            <image src="{{item.img_url}}" mode="aspectFill"></image>
           </view>
         </view>
-      </navigator>
+        <view class="article-info">
+          <text class="article-info-author">{{item.author}}</text>
+          <text class="article-info-origin" wx:if="{{item.origin}}">{{item.origin}}</text>
+          <text class="article-info-title">{{item.title}}</text>
+        </view>
+      </view>
+    </navigator>
     </block>
     <view class="loading" wx:if="{{loadFlag}}">
       <view wx:if="{{!loadAll}}">
